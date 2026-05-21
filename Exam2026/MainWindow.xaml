@@ -92,7 +92,7 @@
                                FontFamily="Noto Sans" FontSize="16" FontWeight="Bold"
                                VerticalAlignment="Center"/>
                     <Button x:Name="btnAdd" Grid.Column="1"
-                            Content="Add Session" Width="120"/>
+                            Content="Add Session" Width="120" Click="btnAdd_Click"/>
                 </Grid>
                 <ListBox x:Name="lbxSessions"/>
             </DockPanel>

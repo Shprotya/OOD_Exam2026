@@ -32,7 +32,7 @@ namespace Exam2026
         public override string ToString() => $"{Surname}, {FirstName} - {ContactNumber}";
     }
 
-    public class TrainingSession
+    public partial class TrainingSession
     {
         //Properties
         [Key]
@@ -43,12 +43,10 @@ namespace Exam2026
         public string CoachNotes { get; set; }
 
         //Navigation property
-        //Each training session is associated with one member, so we use a reference to represent this relationship.
         public int MemberId { get; set; } // Foreign key to link to the Member
         public virtual Member Member { get; set; }
 
         public override string ToString() => $"{SessionDate.ToShortDateString()} - {SessionType} ({DurationMinutes} mins). {CoachNotes}";
-
     }
 
     public class ClubData : DbContext

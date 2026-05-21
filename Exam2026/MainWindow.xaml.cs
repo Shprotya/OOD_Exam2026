@@ -61,5 +61,10 @@ namespace Exam2026
                 lbxSessions.ItemsSource = sessions;
             }
         }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            var addWindow = new TrainingSession();
+        }
     }
 }

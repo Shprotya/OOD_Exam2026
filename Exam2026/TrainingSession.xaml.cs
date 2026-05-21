@@ -23,5 +23,29 @@ namespace Exam2026
         {
             InitializeComponent();
         }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            using (ClubData db = new ClubData())
+            {
+                var session = new TrainingSession
+                {
+                    SessionDate = datePick.SelectedDate.Value,
+                    DurationMinutes = int.Parse(timePick.Text),
+                    SessionType = Type.Text,
+                    CoachNotes = tbxNotes.Text
+                };
+                db.TrainingSessions.Add(session);
+                db.SaveChanges();
+            }
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            datePick.SelectedDate = null;
+            timePick.Value = 0;
+            Type.Text = string.Empty;
+            tbxNotes.Text = string.Empty;
+        }
     }
 }

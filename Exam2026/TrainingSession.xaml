@@ -17,8 +17,8 @@
         <Label Content="Session Type                " HorizontalAlignment="Left" Margin="59,159,0,0" VerticalAlignment="Top"/>
         <Label Content="Duration (Mins)                " HorizontalAlignment="Left" Margin="59,217,0,0" VerticalAlignment="Top"/>
         <Label Content="Coach Notes               " HorizontalAlignment="Left" Margin="59,262,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="158,366,0,0" VerticalAlignment="Top" Background="WhiteSmoke" BorderBrush="White" Foreground="#FF1C4C8C"/>
-        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="311,366,0,0" VerticalAlignment="Top" Background="#FF3596B7" BorderBrush="White" Foreground="White" Width="274"/>
+        <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="158,366,0,0" VerticalAlignment="Top" Background="WhiteSmoke" BorderBrush="White" Foreground="#FF1C4C8C" Click="btnCancel_Click"/>
+        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="311,366,0,0" VerticalAlignment="Top" Background="#FF3596B7" BorderBrush="White" Foreground="White" Width="274" Click="btnSave_Click"/>
         <DatePicker x:Name="datePick" HorizontalAlignment="Left" Margin="195,74,0,0" VerticalAlignment="Top" Height="24" Width="493"/>
         <materialDesign:TimePicker x:Name="timePick" HorizontalAlignment="Left" Margin="195,113,0,0" VerticalAlignment="Top" Height="31" Width="493"/>
         <ComboBox x:Name="Type" HorizontalAlignment="Left" Margin="195,163,0,0" VerticalAlignment="Top" Width="493"/>
