@@ -23,6 +23,29 @@ namespace Exam2026
         public MainWindow()
         {
             InitializeComponent();
+            LoadMembers();
         }
+
+        private void LoadMembers()
+        {
+            using (ClubData db = new ClubData())
+            {
+                var members = db.Members
+                    .Select(m => new
+                    {
+                        m.FirstName,
+                        m.Surname,
+                        m.ContactNumber
+                    })
+                    .ToList();
+
+                lbxMembers.Items.Clear();
+                foreach (var member in members)
+                {
+                    lbxMembers.Items.Add($"{member.FirstName} {member.Surname} - {member.ContactNumber}");
+                }
+            }
+        }
+
     }
 }

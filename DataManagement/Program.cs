@@ -110,6 +110,7 @@ namespace DataManagement
                     db.Members.Add(member2);
                     db.Members.Add(member3);
                     Console.WriteLine("Members added to the database context.");
+                    db.SaveChanges();
 
                     db.TrainingSessions.Add(session1);
                     db.TrainingSessions.Add(session2);
@@ -118,9 +119,10 @@ namespace DataManagement
                     db.TrainingSessions.Add(session5);
                     db.TrainingSessions.Add(session6);
                     Console.WriteLine("Training sessions added to the database context.");
-
                     db.SaveChanges();
-                    Console.WriteLine("Changes saved to the database successfully.");
+
+
+
                 }
             }
             catch (Exception ex)

@@ -11,6 +11,7 @@ namespace Exam2026
     public class Member
     {
         //Properties
+        [Key]
         public int MemberId { get; set; }
         public string FirstName { get; set; }
         public string Surname { get; set; }
@@ -32,6 +33,7 @@ namespace Exam2026
     public class TrainingSession
     {
         //Properties
+        [Key]
         public int SessionId { get; set; }
         public DateTime SessionDate { get; set; }
         public string SessionType { get; set; }
