@@ -31,21 +31,35 @@ namespace Exam2026
             using (ClubData db = new ClubData())
             {
                 var members = db.Members
-                    .Select(m => new
-                    {
-                        m.FirstName,
-                        m.Surname,
-                        m.ContactNumber
-                    })
+                    .OrderBy(m => m.Surname)
+                    .ThenBy(m => m.FirstName)
                     .ToList();
 
-                lbxMembers.Items.Clear();
-                foreach (var member in members)
-                {
-                    lbxMembers.Items.Add($"{member.FirstName} {member.Surname} - {member.ContactNumber}");
-                }
+                lbxMembers.ItemsSource = members;
             }
         }
 
+        private void lbxMembers_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedMember = lbxMembers.SelectedItem as Member;
+            if (selectedMember == null) // ← null means nothing selected, so bail out
+                return;
+
+            lbxID.Text = selectedMember.MemberId.ToString();
+            lbxFName.Text = selectedMember.FirstName;
+            lbxLName.Text = selectedMember.Surname;
+            lbxNumber.Text = selectedMember.ContactNumber;
+            lbxMembershipType.Text = selectedMember.MembershipType;
+            lbxDOB.Text = selectedMember.DateOfBirth.ToShortDateString();
+
+            using (ClubData db = new ClubData())
+            {
+                var sessions = db.TrainingSessions
+                    .Where(s => s.MemberId == selectedMember.MemberId)
+                    .OrderByDescending(s => s.SessionDate)
+                    .ToList();
+                lbxSessions.ItemsSource = sessions;
+            }
+        }
     }
 }

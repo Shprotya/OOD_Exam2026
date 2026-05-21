@@ -28,6 +28,8 @@ namespace Exam2026
         {
             TrainingSessions = new List<TrainingSession>();
         }
+
+        public override string ToString() => $"{Surname}, {FirstName} - {ContactNumber}";
     }
 
     public class TrainingSession
@@ -44,6 +46,8 @@ namespace Exam2026
         //Each training session is associated with one member, so we use a reference to represent this relationship.
         public int MemberId { get; set; } // Foreign key to link to the Member
         public virtual Member Member { get; set; }
+
+        public override string ToString() => $"{SessionDate.ToShortDateString()} - {SessionType} ({DurationMinutes} mins). {CoachNotes}";
 
     }
 

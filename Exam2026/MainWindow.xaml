@@ -19,7 +19,7 @@
                        Text="Members"
                        FontFamily="Noto Sans" FontSize="16" FontWeight="Bold"
                        Margin="0,0,0,8"/>
-            <ListBox x:Name="lbxMembers"/>
+            <ListBox x:Name="lbxMembers" SelectionChanged="lbxMembers_SelectionChanged"/>
         </DockPanel>
 
         <!-- Right panel -->
