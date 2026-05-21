@@ -4,10 +4,98 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Exam2026"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="220"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Left panel: Members list -->
+        <DockPanel Grid.Column="0" Margin="12">
+            <TextBlock DockPanel.Dock="Top"
+                       Text="Members"
+                       FontFamily="Noto Sans" FontSize="16" FontWeight="Bold"
+                       Margin="0,0,0,8"/>
+            <ListBox x:Name="lbxMembers"/>
+        </DockPanel>
+
+        <!-- Right panel -->
+        <Grid Grid.Column="1" Margin="12">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Member Details section -->
+            <StackPanel Grid.Row="0" Margin="0,0,0,16">
+                <TextBlock Text="Member Details"
+                           FontFamily="Noto Sans" FontSize="16" FontWeight="Bold"
+                           Margin="0,0,0,10"/>
+
+                <!-- Row 1: ID, First Name, Last Name -->
+                <Grid Margin="0,0,0,8">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0">
+                        <TextBlock Text="ID" FontSize="11" Foreground="Gray"/>
+                        <TextBlock x:Name="lbxID" FontSize="13"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1">
+                        <TextBlock Text="First Name" FontSize="11" Foreground="Gray"/>
+                        <TextBlock x:Name="lbxFName" FontSize="13"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2">
+                        <TextBlock Text="Last Name" FontSize="11" Foreground="Gray"/>
+                        <TextBlock x:Name="lbxLName" FontSize="13"/>
+                    </StackPanel>
+                </Grid>
+
+                <!-- Row 2: Contact Number, Membership Type, DOB -->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0">
+                        <TextBlock Text="Contact Number" FontSize="11" Foreground="Gray"/>
+                        <TextBlock x:Name="lbxNumber" FontSize="13"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1">
+                        <TextBlock Text="Membership Type" FontSize="11" Foreground="Gray"/>
+                        <TextBlock x:Name="lbxMembershipType" FontSize="13"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2">
+                        <TextBlock Text="Date of Birth" FontSize="11" Foreground="Gray"/>
+                        <TextBlock x:Name="lbxDOB" FontSize="13"/>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+
+            <!-- Training Sessions section -->
+            <DockPanel Grid.Row="1">
+                <Grid DockPanel.Dock="Top" Margin="0,0,0,8">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0"
+                               Text="Training Sessions"
+                               FontFamily="Noto Sans" FontSize="16" FontWeight="Bold"
+                               VerticalAlignment="Center"/>
+                    <Button x:Name="btnAdd" Grid.Column="1"
+                            Content="Add Session" Width="120"/>
+                </Grid>
+                <ListBox x:Name="lbxSessions"/>
+            </DockPanel>
+        </Grid>
     </Grid>
 </Window>
