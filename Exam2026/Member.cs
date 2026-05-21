@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,5 +34,13 @@ namespace Exam2026
         //Navigation property
         //Each training session is associated with one member, so we use a reference to represent this relationship.
         public Member Member { get; set; }
+    }
+
+    public class ClubData : DbContext
+    {
+        //the name of the database
+        public ClubData() : base("OODExam_YelyzavetaKareieva") { }
+        public DbSet<Member> Members { get; set; }
+        public DbSet<TrainingSession> Sessions { get; set; }
     }
 }
