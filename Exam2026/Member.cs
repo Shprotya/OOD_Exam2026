@@ -15,7 +15,7 @@ namespace Exam2026
         public string Surname { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string ContactNumber { get; set; }
-        public string MembershipStyle { get; set; }
+        public string MembershipType { get; set; }
 
         //Navigation property
         //A member can have multiple training sessions, so we use a list to represent this relationship.
